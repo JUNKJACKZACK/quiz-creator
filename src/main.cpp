@@ -128,6 +128,9 @@ void shortAnswer() {
 
 void connectDefinitions() {
 
+	string words[4] = { "Volvo", "BMW", "Ford", "Mazda" };
+	string defintions[4] = { "Volvo", "BMW", "Ford", "Mazda" };
+
 	fstream file;
 
 	if (!file)
@@ -140,6 +143,8 @@ void connectDefinitions() {
 	if (file.is_open()) {
 		counter = 0;
 
+		file << current_numbered_question << ".) Connect the definitions to the word.";
+		file << "\n\n";
 
 		while (counter != 4) {
 
@@ -152,6 +157,7 @@ void connectDefinitions() {
 				cin.ignore();
 				file << "\n\n";
 				getline(cin, user_def);
+			
 
 			if (counter == 0) {
 				connectword1 = user_word;
@@ -174,9 +180,6 @@ void connectDefinitions() {
 
 		}
 		
-		string printconnect[] = { connectword1, connectword2 };
-		for (int i = 0; i < sizeof(printconnect) / sizeof(int); i++)
-			cout << printconnect[i] << endl;
 
 	}
 	return;
