@@ -141,46 +141,26 @@ void connectDefinitions() {
 	file.open("quiz.txt", ios::app);
 
 	if (file.is_open()) {
-		counter = 0;
 
 		file << current_numbered_question << ".) Connect the definitions to the word.";
 		file << "\n\n";
 
-		while (counter != 4) {
+		for (int i = 0; i == 4; i++) { //you need for loop so you can ask the questions
+			//four times and store data in array. Scramble data later and then you can print.
+
+			string definitions[4]{ "","","","" };
+			string words[4]{ "","","","" };
 
 			cout << "What is the word you would like to add?\n";
-				cin.ignore();
-				file << "\n\n";
-				getline(cin, user_word);
+			cin.ignore();
+			getline(cin, words[i]);
 
 			cout << "What is the definition of the word you added?\n\n";
-				cin.ignore();
-				file << "\n\n";
-				getline(cin, user_def);
-			
-
-			if (counter == 0) {
-				connectword1 = user_word;
-				connectdef1 = user_def;
-			}
-			if (counter == 1) {
-				connectword2 = user_word;
-				connectdef2 = user_def;
-			}
-			if (counter == 2) {
-				connectword3 = user_word;
-				connectdef3 = user_def;
-			}
-			if (counter == 3) {
-				connectword4 = user_word;
-				connectdef4 = user_def;
-			}
-
-			counter++;
-
+			cin.ignore();
+			getline(cin, definitions[i]); //everytime it iterates through it grabs the current value
+			// of i and makes the the certain array block to grab 
 		}
-		
-
+		cout << words[3];
 	}
 	return;
 }
